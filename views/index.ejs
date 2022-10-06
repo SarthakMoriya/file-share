@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Share</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        /* background-color:black; */
+        font-family: 'Lato', sans-serif;
+        background-image: linear-gradient(to right, #ff886a, #fcf6cf)
+    }
+
+    .container {
+        transform: translate(50%, 8%);
+        border: 2px solid rgb(234, 167, 167);
+        display: flex;
+        width: 57vw;
+        height: 50vh;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -webkit-box-shadow: inset 47px -29px 294px -12px rgba(255, 136, 106, 0.59);
+        -moz-box-shadow: inset 47px -29px 294px -12px rgba(255, 136, 106, 0.59);
+        box-shadow: inset 47px -29px 294px -12px rgba(255, 136, 106, 0.59);
+    }
+
+    .title {
+        font-size: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        background-color: black;
+        width: auto;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(266%);
+    }
+
+    footer a {
+        color: white;
+
+    }
+
+    /* .Link {
+        position: absolute;
+        top: 408px;
+        left: 590px;
+    } */
+</style>
+
+<body>
+    <% if (locals.fileLink !=null) { %>
+        <div style="margin-bottom: 1rem;">
+            <div class="Link">File uploaded:<a href="<%= locals.fileLink %>">
+                    <%= locals.fileLink %>
+                </a></div>
+
+        </div>
+        <% } %>
+            <div class="title">File Share</div>
+            <div class="container">
+                <form action="/upload" method="post"
+                    style="display: grid; gap: .5rem; grid-template-columns: auto 1fr; max-width: 500px; margin: 0 auto;"
+                    enctype="multipart/form-data">
+                    <label for="file">File:</label>
+                    <input type="file" id="file" name="file" required />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" />
+                    <button type="submit">Share</button>
+                </form>
+            </div>
+            <footer>
+                <p>Author: Doremon Singh<br>
+                    <a href="doremon@gmail.com">doremon@gmail.com</a>
+                </p>
+            </footer>
+</body>
+
+</html>
